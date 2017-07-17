@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// Production
+var helmet = require('helmet')
+var compression = require('compression');
+
 var index = require('./routes/index');
 
 var app = express();
@@ -31,6 +35,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Production
+app.use(compression()); //Compress all routes
+app.use(helmet())
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
