@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(name='Content-Language', content='en')
+        meta(name='Copyright', content='Jordi Fernandez')
+        meta(name='Author', content='Jordi Fernandez')
+        meta(name='Publisher', content='Jordi Fernandez')
+        meta(name='Identifier-Url', content='jordi-fernandez.com')
+        meta(name='Revisit-After', content='15 days')
+        meta(name='Geography', content='France')
+        meta(name='Category', content='internet')
+        block meta
+        title Jordi Fernandez
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/bootstrap-material-design.min.css')
+        link(rel='stylesheet', href='/stylesheets/font-awesome/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        block css
+        script(src='/javascripts/jquery.min.js')
+        script(src='/javascripts/bootstrap.min.js')
+        script(src='/javascripts/material.min.js')
+    body
+        block content
+            .container
+    footer
+        block footer
+        script.
+            $.material.init()
+        block javascript
