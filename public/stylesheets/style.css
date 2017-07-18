@@ -176,6 +176,8 @@ h4 {
 }
 .job-desc {
   color: #212121;
+  font-size: 15px;
+  text-align: justify;
 }
 .timeline .item:after {
   content: "";

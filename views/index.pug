@@ -75,58 +75,19 @@ block content
         section#experiences-section.experiences-section.section
             h2.section-title Work Experiences
             .timeline
-                .item
-                    .work-place
-                        h3.place Google
-                        .location
-                            i.fa.fa-map-marker(aria-hidden='true')
-                            | Mountain View
-                    .job-meta
-                        .title Senior Software Engineer
-                        .time 2016 - Present
-                    .job-desc
-                        p
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                        ul
-                            li Lorem ipsum dolor sit amet
-                            li Donec pede justo ante
-                            li Maecenas tempus tellus eget 
-                .item
-                    .work-place
-                        h3.place Apple
-                        .location
-                            i.fa.fa-map-marker(aria-hidden='true')
-                            | New York
-                    .job-meta
-                        .title Lead Software Engineer
-                        .time 2015 - 2016
-                    .job-desc
-                        p
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                .item
-                    .work-place
-                        h3.place Twitter
-                        .location
-                            i.fa.fa-map-marker(aria-hidden='true')
-                            | London
-                    .job-meta
-                        .title Software Engineer
-                        .time 2013 - 2015
-                    .job-desc
-                        p
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-                .item
-                    .work-place
-                        h3.place Startup Hub
-                        .location
-                            i.fa.fa-map-marker(aria-hidden='true')
-                            | London
-                    .job-meta
-                        .title Founder & Lead Developer
-                        .time 2012 - 2013
-                    .job-desc
-                        p
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+                each item in experiences
+                    .item
+                        .work-place
+                            h3.place #{item.workplace}
+                            .location
+                                i.fa.fa-map-marker(aria-hidden='true')
+                                | #{item.location}
+                        .job-meta
+                            .title #{item.title}
+                            .time #{item.startDate} - #{item.endDate}
+                        .job-desc
+                            p
+                                | #{item.description}
         section#education-section.education-section.section
             h2.section-title Education
             .row
