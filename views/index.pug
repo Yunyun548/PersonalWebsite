@@ -7,25 +7,17 @@ block content
     header.header
         .top-bar.container-fluid
             .actions
-                a.btn.btn-raised.btn-default.hidden-xs(href='mailto:contact@jordi-fernandez.com')
+                a.btn.btn-raised.btn-default.hidden-xs(href='mailto:'+contacts.email)
                     i.fa.fa-paper-plane(aria-hidden='true')
                     |  Hire Me
                 a.btn.btn-raised.btn-default(href='#')
                     i.fa.fa-download(aria-hidden='true')
                     |  Download My Resume
             ul.social.list-inline
-                li
-                    a(href=links.linkedin)
-                        i.fa.fa-linkedin(aria-hidden='true')
-                li
-                    a(href=links.twitter)
-                        i.fa.fa-twitter(aria-hidden='true')
-                li
-                    a(href=links.github)
-                        i.fa.fa-github-alt(aria-hidden='true')
-                li
-                    a(href=links.skype)
-                        i.fa.fa-skype(aria-hidden='true')
+                each link, key in links
+                    li
+                        a(href=link)
+                            i(class='fa fa-'+key, aria-hidden='true')
         .intro
             .container.text-center
                 img.profile-image(src='/images/profile-picture.jpg', alt='')
@@ -33,21 +25,24 @@ block content
                 .title Full Stack Developer
                 .profile
                     p.white
-                        | Profile info goes here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet.
-        .contact-info
+                        | Passionate and experimented <strong>freelance developer</strong> (for over 4 years), I put my skills and my expertise at your 
+                        service to offer a high quality work. My knowledge in <strong>web</strong> and <strong>mobile development</strong> will 
+                        allow me to suggest adequate technical solutions. In addition, I always thrive to learn new skills and try to stay as 
+                        updated as possible with the latest trends in web development : I am currently working on multiple personal projects to 
+                        experiment on different things, such as <strong>React</strong> or <strong>Symfony</strong> latest version !
             .container.text-center
                 ul.list-inline.white
                     li.email.mr30
-                        i.fa.fa-envelope
-                        a(href='mailto:contact@jordi-fernandez.com') contact@jordi-fernandez.com
+                        i.fa.fa-envelope.mr10
+                        a(href='mailto:'+contacts.email) #{contacts.email}
                     li.phone.mr30
-                        i.fa.fa-phone
-                        a(href='#') +336-8817-7715
+                        i.fa.fa-phone.mr10
+                        a(href='tel:'+contacts.phone) #{contacts.phone2}
                     li.website
-                        i.fa.fa-globe
-                        a(href='#', target='_blank') jordi-fernandez.com
+                        i.fa.fa-globe.mr10
+                        a(href='#', target='_blank') #{contacts.website}
         .bs-component
-            .navbar.navbar-default
+            #navbar.navbar.navbar-default
                 .container-fluid
                     .navbar-header
                         button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
@@ -57,17 +52,15 @@ block content
                     .navbar-collapse.collapse.navbar-responsive-collapse
                         ul.nav.navbar-nav.middle
                             li.active
-                                a(href='javascript:void(0)') Experiences
+                                a(href='#experiences-section') Experiences
                             li
-                                a(href='javascript:void(0)') Education
+                                a(href='#education-section') Education
                             li
-                                a(href='javascript:void(0)') Skills
+                                a(href='#skills-section') Skills
                             li
-                                a(href='javascript:void(0)') Testimonials
+                                a(href='#portfolio-section') Portfolio
                             li
-                                a(href='javascript:void(0)') Portfolio
-                            li
-                                a(href='javascript:void(0)') Contact
+                                a(href='#contact-section') Contact
     .wrapper.container
         section#experiences-section.experiences-section.section
             h2.section-title Work Experiences
@@ -140,7 +133,7 @@ block content
                             .action
                                 a(href='#') View
                         a.link-mask(href='#')
-                .item.backend.col-md-4.col-xs-6.mb35
+                .item.frontend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/chateauhautenauve.png', alt='')
@@ -151,7 +144,7 @@ block content
                             .action
                                 a(href='#') View on Github
                         a.link-mask(href='#')
-                .item.backend.frontend.col-md-4.col-xs-6.mb35
+                .item.backend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/chefsandwines.png', alt='')
@@ -173,7 +166,7 @@ block content
                             .action
                                 a(href='#') View on Github
                         a.link-mask(href='#')
-                .item.backend.col-md-4.col-xs-6.mb35
+                .item.frontend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/maisoncaprais.png', alt='')
@@ -184,7 +177,7 @@ block content
                             .action
                                 p.hidden(href='#') View
                         a.link-mask(href='#')
-                .item.backend.col-md-4.col-xs-6.mb35
+                .item.backend.frontend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/myartmakers.png', alt='')
@@ -195,7 +188,7 @@ block content
                             .action
                                 a(href='#') View
                         a.link-mask(href='#')
-                .item.frontend.col-md-4.col-xs-6.mb35
+                .item.backend.frontend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/normatech.png', alt='')
@@ -206,7 +199,7 @@ block content
                             .action
                                 a(href='#') View
                         a.link-mask(href='#')
-                .item.frontend.col-md-4.col-xs-6.mb35
+                .item.backend.frontend.col-md-4.col-xs-6.mb35
                     .item-inner
                         figure.figure
                             img.img-responsive(src='/images/references/octocat2.png', alt='')
@@ -224,7 +217,7 @@ block content
                         .content.text-left
                             h3.sub-title
                                 a(href='#') This website
-                            .meta Node.js
+                            .meta Express.js
                             .action
                                 a(href='#') View on github
                         a.link-mask(href='#')
@@ -234,7 +227,10 @@ block content
                 img.profile-image(src='/images/profile-picture.jpg', alt='')
                 .dialog
                     p
-                        | I'm currently taking on freelance work. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                        | I'm currently taking on freelance work. Wether you are an agency, a professional, or a graphic designer, Feel free to contact 
+                        me so we can discuss about your project. Because my work doesn't stop with the code I analyze your requirements and 
+                        constraints before suggesting a solution. I will always try to chose and offer a flexible and scalable solution suited 
+                        to your needs without ignoring the maintenance costs !
                     p.mt35
                         strong I can help with the following:
                     ul.list-unstyled.service-list
@@ -243,40 +239,32 @@ block content
                             |  App development with ReactJS
                         li
                             i.fa.fa-check(aria-hidden='true')
-                            |  Front-end development with AngularJS
+                            |  Front-end development with Vue.js
                         li
                             i.fa.fa-check(aria-hidden='true')
-                            |  Back-end development with Django/Python
+                            |  Back-end development with Symfony
                         li
                             i.fa.fa-check(aria-hidden='true')
-                            |  UI development
+                            |  Back-end development with Express.js
                         li
                             i.fa.fa-check(aria-hidden='true')
-                            |  UX prototyping
-                    //- p
-                    //-     | Drop me a line at 
-                    //-     a(href='mailto:someone@example.com') james.doe@website.com
-                    //-     |  or call me at 
-                    //-     a(href='tel:01234567890') 0123 456 7890
+                            |  Webserver Configuration/maintenance
+                    p
+                        | Drop me a line at 
+                        a(href='mailto:'+contacts.email) #{contacts.email}
+                        |  or call me at 
+                        a(href='tel:'+contacts.phone) #{contacts.phone2}
                     ul.social.list-inline.mt35
-                        li
-                            a(href=links.linkedin)
-                                i.fa.fa-linkedin(aria-hidden='true')
-                        li
-                            a(href=links.twitter)
-                                i.fa.fa-twitter(aria-hidden='true')
-                        li
-                            a(href=links.github)
-                                i.fa.fa-github-alt(aria-hidden='true')
-                        li
-                            a(href=links.skype)
-                                i.fa.fa-skype(aria-hidden='true')
+                        each link, key in links
+                            li
+                                a(href=link)
+                                    i(class='fa fa-'+key, aria-hidden='true')
 block footer
     .footer.text-center
         .container
             small.copyright
                 | Copyright @ 
-                a(href='https://jordi-fernandez.com/', target='_blank') 
+                a(href=''+contacts.website, target='_blank') 
                     strong Jordi Fernandez
     script(src='/javascripts/jquery.easypiechart.min.js')
     script(src='/javascripts/imagesloaded.pkgd.min.js')
@@ -313,4 +301,53 @@ block footer
                     $( this ).addClass('active');
                 });
             });
+
+            var navbar = document.getElementById('navbar');
+            var navbarPos = navbar.offsetTop;
+            $(window).scroll(function () {  
+                if ($(window).scrollTop() > navbarPos) {
+                    navbar.classList.add('navbar-fixed-top');
+                }
+                if ($(window).scrollTop() < (navbarPos+1)) {
+                    navbar.classList.remove('navbar-fixed-top');
+                }
+            });
+
+            $(document).on("scroll", onScroll);
+
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+                $(document).off("scroll");
+
+                $('a').each(function () {
+                    $(this).removeClass('active');
+                })
+                $(this).addClass('active');
+
+                var target = this.hash,
+                    menu = target;
+                $target = $(target);
+                
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top-75
+                }, 500, 'swing', function () {
+                    window.location.hash = target;
+                    $(document).on("scroll", onScroll);
+                });
+            });
+            
+            function onScroll(event){
+                var scrollPos = $(document).scrollTop();
+                $('#navbar a').each(function () {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        $('#navbar ul li a').parent().removeClass("active");
+                        currLink.parent().addClass("active");
+                    }
+                    else{
+                        currLink.parent().removeClass("active");
+                    }
+                });
+            }
         });

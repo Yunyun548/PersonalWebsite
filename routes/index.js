@@ -6,12 +6,14 @@ var education = require('../public/data/education.json');
 var skillsMains = require('../public/data/skills-mains.json');
 var skillsSecondaries = require('../public/data/skills-secondaries.json');
 var links = require('../public/data/links.json');
+var contacts = require('../public/data/contacts.json');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
     res.render('index', {
+        contacts: contacts,
         experiences: experiences,
         education: education,
         skills: {
