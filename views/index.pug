@@ -7,7 +7,7 @@ block content
     header.header
         .top-bar.container-fluid
             .actions
-                a.btn.btn-raised.btn-default.hidden-xs(href='mailto:someone@example.com')
+                a.btn.btn-raised.btn-default.hidden-xs(href='mailto:contact@jordi-fernandez.com')
                     i.fa.fa-paper-plane(aria-hidden='true')
                     |  Hire Me
                 a.btn.btn-raised.btn-default(href='#')
@@ -15,19 +15,16 @@ block content
                     |  Download My Resume
             ul.social.list-inline
                 li
-                    a(href='#')
+                    a(href=links.linkedin)
                         i.fa.fa-linkedin(aria-hidden='true')
                 li
-                    a(href='#')
+                    a(href=links.twitter)
                         i.fa.fa-twitter(aria-hidden='true')
                 li
-                    a(href='#')
-                        i.fa.fa-google-plus(aria-hidden='true')
-                li
-                    a(href='#')
+                    a(href=links.github)
                         i.fa.fa-github-alt(aria-hidden='true')
                 li
-                    a(href='#')
+                    a(href=links.skype)
                         i.fa.fa-skype(aria-hidden='true')
         .intro
             .container.text-center
@@ -42,7 +39,7 @@ block content
                 ul.list-inline.white
                     li.email.mr30
                         i.fa.fa-envelope
-                        a(href='#') jordifc[at]wanadoo.fr
+                        a(href='mailto:contact@jordi-fernandez.com') contact@jordi-fernandez.com
                     li.phone.mr30
                         i.fa.fa-phone
                         a(href='#') +336-8817-7715
@@ -91,82 +88,40 @@ block content
         section#education-section.education-section.section
             h2.section-title Education
             .row
-                .item.col-xs-12.col-sm-4
-                    .item-inner
-                        h3.degree MSc Computer Science
-                        .education-body
-                            | University College of London
-                        .time 2011 - 2012
-                        .desc
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                .item.col-xs-12.col-sm-4
-                    .item-inner
-                        h3.degree MSc Applied Mathematics
-                        .education-body
-                            | University of Bristol
-                        .time 2010 - 2011
-                        .desc
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                .item.col-xs-12.col-sm-4
-                    .item-inner
-                        h3.degree BSc Creative Technology
-                        .education-body
-                            | University of Bristol
-                        .time 2007 - 2010
-                        .desc
-                            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
+                each item in education
+                    .item.col-xs-12.col-sm-4
+                        .item-inner
+                            h3.degree #{item.title}
+                            .education-content
+                                .education-body
+                                    | #{item.school}
+                                .time #{item.startDate} - #{item.endDate}
+                                .desc
+                                    | #{item.description}
         section#skills-section.skills-section.section.text-center
             h2.section-title Professional Skills
             .top-skills
                 h3.subtitle Top Skills
                 .row
-                    .item.col-xs-12.col-sm-4
-                        .item-inner
-                            .chart-easy-pie.text-center
-                                .chart-theme-1.chart(data-percent='98')
-                                    span 98
-                                    | %
-                                    canvas(height='110', width='110')
-                            h4.skill-name Symfony
-                            .level Expert, 8 years
-                            .desc
-                                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                    .item.col-xs-12.col-sm-4
-                        .item-inner
-                            .chart-easy-pie.text-center
-                                .chart-theme-1.chart(data-percent='90')
-                                    span 90
-                                    | %
-                                    canvas(height='110', width='110')
-                            h4.skill-name JavaScript
-                            .level Expert, 8 years
-                            .desc
-                                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                    .item.col-xs-12.col-sm-4
-                        .item-inner
-                            .chart-easy-pie.text-center
-                                .chart-theme-1.chart(data-percent='85')
-                                    span 85
-                                    | %
-                                    canvas(height='110', width='110')
-                            h4.skill-name React & Angular
-                            .level Advanced, 4 years
-                            .desc
-                                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
+                    each item in skills.mains
+                        .item.col-xs-12.col-sm-4
+                            .item-inner
+                                .chart-easy-pie.text-center
+                                    .chart(data-percent=item.mastery)
+                                        span #{item.mastery}
+                                        | %
+                                        canvas(height='110', width='110')
+                                h4.skill-name #{item.name}
+                                .level #{item.level}, #{item.years} years
+                                .desc
+                                    | #{item.description}
                     .other-skills
                         h3.subtitle Other Skills
                         .misc-skills
-                            span.skill-tag HTML5
-                            span.skill-tag CSS3
-                            span.skill-tag SASS
-                            span.skill-tag LESS
-                            span.skill-tag Git
-                            br
-                            span.skill-tag Ruby
-                            span.skill-tag PHP
-                            span.skill-tag Wireframe
-                            span.skill-tag Spanish
-                            span.skill-tag French
+                            each item, index in skills.secondaries
+                                span.skill-tag #{item.name}
+                                if(index%5 == 4)
+                                    br
         section#portfolio-section.portfolio-section.section
             h2.section-title Portfolio
             ul#filters.filters.clearfix
@@ -305,26 +260,24 @@ block content
                     //-     a(href='tel:01234567890') 0123 456 7890
                     ul.social.list-inline.mt35
                         li
-                            a(href='#')
+                            a(href=links.linkedin)
                                 i.fa.fa-linkedin(aria-hidden='true')
                         li
-                            a(href='#')
+                            a(href=links.twitter)
                                 i.fa.fa-twitter(aria-hidden='true')
                         li
-                            a(href='#')
-                                i.fa.fa-google-plus(aria-hidden='true')
-                        li
-                            a(href='#')
+                            a(href=links.github)
                                 i.fa.fa-github-alt(aria-hidden='true')
                         li
-                            a(href='#')
+                            a(href=links.skype)
                                 i.fa.fa-skype(aria-hidden='true')
 block footer
     .footer.text-center
         .container
             small.copyright
                 | Copyright @ 
-                a(href='https://jordi-fernandez.com/', target='_blank') Jordi Fernandez
+                a(href='https://jordi-fernandez.com/', target='_blank') 
+                    strong Jordi Fernandez
     script(src='/javascripts/jquery.easypiechart.min.js')
     script(src='/javascripts/imagesloaded.pkgd.min.js')
     script(src='/javascripts/isotope.pkgd.min.js')

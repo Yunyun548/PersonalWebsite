@@ -227,11 +227,16 @@ h4 {
   margin-bottom: 0;
   font-weight: 600;
 }
+.education-content {
+  position: relative;
+  top: 10px;
+}
 .education-body {
   font-weight: 500;
   margin-bottom: 0;
   font-size: 16px;
   font-weight: 300;
+  margin-top: 20px;
 }
 .time {
   color: #8a8a8a;
@@ -239,6 +244,7 @@ h4 {
 }
 .education-section .desc {
   color: #666;
+  text-align: justify;
 }
 .chart canvas {
   position: absolute;
