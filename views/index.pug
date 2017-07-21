@@ -77,7 +77,7 @@ block content
                             .time #{item.startDate} - #{item.endDate}
                         .job-desc
                             p
-                                | #{item.description}
+                                | !{item.description}
         section#education-section.education-section.section
             h2.section-title Education
             .row
@@ -90,7 +90,7 @@ block content
                                     | #{item.school}
                                 .time #{item.startDate} - #{item.endDate}
                                 .desc
-                                    | #{item.description}
+                                    | !{item.description}
         section#skills-section.skills-section.section.text-center
             h2.section-title Professional Skills
             .top-skills
@@ -107,7 +107,7 @@ block content
                                 h4.skill-name #{item.name}
                                 .level #{item.level}, #{item.years} years
                                 .desc
-                                    | #{item.description}
+                                    | !{item.description}
                     .other-skills.col-xs-12
                         h3.subtitle Other Skills
                         .misc-skills
